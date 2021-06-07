@@ -1,0 +1,14 @@
+dev:
+  base_url: "http://192.168.15.23:5000"
+  aws_secret_name: 'POC_Backend'
+  aws_region_name: 'us-east-1'
+
+qa:
+  base_url_: "https://..."
+  aws_secret_name: ''
+  aws_region_name: ''
+
+prod:
+  base_url: "https://..."
+  aws_secret_name: ''
+  aws_region_name: ''

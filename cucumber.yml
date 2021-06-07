@@ -1,0 +1,19 @@
+#encoding: UTF-8
+---
+#Tudo que será executado
+default: --publish-quiet -p pretty -p json -p dev
+ci: --publish-quiet -p progress -p json -p dev
+
+#Formato de execução
+pretty: --format pretty --color -r features
+progress: --format progress
+
+#Caminhos dos relatorios
+html:  --format html --out=reports/report.html
+json:  --format json --out=reports/report.json
+
+#Ambientes
+dev: ENV=dev
+qa: ENV=qa
+prod: ENV=prod
+
