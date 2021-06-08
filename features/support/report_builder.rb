@@ -1,11 +1,11 @@
 at_exit do
   ReportBuilder.configure do |config|
     config.input_path = 'reports/report.json'
-    config.report_path = 'reports/report-builder_-_' + Time.now.strftime('%Y-%m-%d_-_%H-%M-%S').to_s
+    config.report_path = "reports/report-builder_-_#{Time.now.strftime('%Y-%m-%d_-_%H-%M-%S')}"
     config.report_types = [:html]
-    config.report_title  = "orange-platform"
+    config.report_title = 'POC TDC'
     config.voice_commands = true
-    config.color = 'orange'
+    config.color = 'blue'
     config.additional_info = {
       DateTime: DateTime.now,
       Environment: ENVIRONMENT,
