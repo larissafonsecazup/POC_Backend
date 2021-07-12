@@ -1,15 +1,20 @@
-name: SecurityPipeline
-
-on: [push]
+on:  
+    push:
+        branches: [ main ]
+    pull_request:
+        branches: [ main ]
 
 jobs:
-  horusec-security:
-    name: horusec-security
+  build:
     runs-on: ubuntu-latest
     steps:
-    - name: Check out code
+    - name: Checkout
       uses: actions/checkout@v2
-    - name: Running Horusec Security
+    - name: Running Horus Security
       run: |
-        curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/master/deployments/scripts/install.sh | bash -s latest
-        horusec start -p="./" -e="false"
+        curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/master/deployments/scripts/install.sh | bash
+        horusec start -p ./ -G "true" -o="json" -O="./output.json"
+    - uses: actions/upload-artifact@v2
+      with:
+        name: horusec-output
+        path: ./output.json
